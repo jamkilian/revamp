@@ -1,10 +1,12 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Acid : MonoBehaviour {
 
     public int maxAcid = 3;
-    public int acidRefresh = 7;
+    public float acidRefresh = 7;
+    private List<float> acidRefreshTimes;
 
 	public Vector3 ObjectSpawnPosition;
     public Object acidObject;
@@ -16,41 +18,27 @@ public class Acid : MonoBehaviour {
 
 	void Start()
 	{
-		acidOffSet = this.gameObject.transform.right * -1.5f;
+        acidRefreshTimes = new List<float>();
+    	acidOffSet = this.gameObject.transform.right * -1.5f;
         acidObject = Resources.Load("Acid");
 	}
 
     void Update()
     {
-        if (countAcid >= maxAcid)
+        if (acidRefreshTimes.Count > 0)
         {
-            counterTime += Time.deltaTime;
-
-            if (counterTime >= acidRefresh)
-            {
-                if (--countAcid < 0)
-                {
-                    countAcid = 0;
-                    counterTime = 0;
-                    //Debug.Log(countAcid);
-                }
-                else
-                {
-                    //Debug.Log("Decremented");
-                    counterTime = 0;
-                }
-            }
+            if (acidRefreshTimes[0] <= Time.time)
+                acidRefreshTimes.Remove(acidRefreshTimes[0]);
         }
-
     }
 
     public void Attack(float direction)
     {
-        if (countAcid < maxAcid)
+        if (acidRefreshTimes.Count < maxAcid)
         {
-            Instantiate(acidObject, this.gameObject.transform.position + (direction * acidOffSet), Quaternion.identity);
-            countAcid++;
+            Instantiate(acidObject, this.gameObject.transform.position + 
+                (direction * acidOffSet), Quaternion.identity);
+            acidRefreshTimes.Add(Time.time + acidRefresh);
         }
     }
-
 }

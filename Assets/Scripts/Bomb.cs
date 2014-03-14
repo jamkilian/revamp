@@ -17,7 +17,6 @@ public class Bomb : MonoBehaviour
     void Update () 
     {
 
-        Debug.Log(string.Format("Total bombs: {0}", countBomb));
 	    if (countBomb > 0)
         {
 	        counterTime += Time.deltaTime;
