@@ -1,52 +1,44 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 
 public class Bomb : MonoBehaviour
 {
     public int maxBomb = 2;
-    public int bombRefresh = 10;
+    public float bombRefresh = 10;
+    private Queue<float> bombRefreshTimes;
 
     private Object bombObject;
     private Vector3 bombOffset;
     private int countBomb = 0;
     private float counterTime = 0.0f;
     [HideInInspector]
-    public bool isReady = true;
+    public bool isReady;
+
+    void Start()
+    {
+        bombRefreshTimes = new Queue<float>();
+        bombObject = Resources.Load("Bomb");
+        bombOffset = this.gameObject.transform.right + new Vector3(3, 0, 0);
+    }
 
     void Update () 
     {
 
-	    if (countBomb > 0)
+        if (bombRefreshTimes.Count > 0)
         {
-	        counterTime += Time.deltaTime;
-	    
-            if (counterTime >= bombRefresh)
-            {
-                if (--countBomb < 0)
-                {
-                    countBomb = 0;
-                    counterTime = 0;
-                    Debug.Log(countBomb);
-                }
-                else
-                {
-                    Debug.Log("Decremented");
-                    counterTime = 0;
-                }
-		    }
-	    }
-        if (countBomb >= 2)
+            if (bombRefreshTimes.Peek() <= Time.time)
+                bombRefreshTimes.Dequeue();
+        }
+
+        if (bombRefreshTimes.Count >= maxBomb)
             isReady = false;
         else
             isReady = true;
+
     }
 
-    void Start()
-    {
-        bombObject = Resources.Load("Bomb");
-        bombOffset = this.gameObject.transform.right + new Vector3(3,0,0);
-    }
+    
 
     public void Attack(float direction)
     {
@@ -54,12 +46,7 @@ public class Bomb : MonoBehaviour
         {
             GameObject bombInstance = (GameObject)Instantiate(bombObject, this.gameObject.transform.position + -(direction * bombOffset), transform.rotation);
             bombInstance.gameObject.rigidbody.AddForce(transform.right * -100);
-            countBomb++;
+            bombRefreshTimes.Enqueue(Time.time + bombRefresh);
         }
-	    /*
-            GameObject bombInstance = (GameObject)Instantiate(bombObject, transform.position, transform.rotation);
-	        bombInstance.gameObject.rigidbody.AddForce(transform.right * 100);
-	        countBomb += 1;
-         }*/
     }
 }

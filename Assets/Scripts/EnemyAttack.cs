@@ -28,7 +28,7 @@ public class EnemyAttack : MonoBehaviour
 	{
 		 if (other.gameObject.name == "Server")
 		{
- 			Debug.Log("Collided with server");
+ 			//Debug.Log("Collided with server");
 			EnemyAnimation walk;
 			walk = this.GetComponent<EnemyAnimation>();
 			walk.iswalk = true;
