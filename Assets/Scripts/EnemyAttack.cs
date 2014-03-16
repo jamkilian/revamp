@@ -4,14 +4,14 @@ using System.Collections;
 public class EnemyAttack : MonoBehaviour 
 {
 	public GameObject target;
-	public ServerHealth eh;
+	public ServerHealth sh;
 
 
-	 //Use this for initialization
+	//Use this for initialization
 	void Start () 
 	{
 		target = GameObject.Find("Server");
-		eh = (ServerHealth)target.GetComponent("Server");
+		sh = (ServerHealth)target.GetComponent("ServerHealth");
 		
 	
 	}
@@ -28,13 +28,12 @@ public class EnemyAttack : MonoBehaviour
 	{
 		 if (other.gameObject.name == "Server")
 		{
- 			//Debug.Log("Collided with server");
+			//Debug.Log("Collided with server");
 			EnemyAnimation walk;
 			walk = this.GetComponent<EnemyAnimation>();
 			walk.iswalk = true;
-			ServerHealth eh = (ServerHealth)target.GetComponent("ServerHealth");
-			eh.AddjustCurrentHealth(-10);
-       		
+			sh.AddjustCurrentHealth(-10);
+			
 		}
 		
 	}
