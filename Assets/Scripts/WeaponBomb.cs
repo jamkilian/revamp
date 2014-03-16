@@ -57,7 +57,7 @@ public class WeaponBomb : MonoBehaviour
         hitTargets = Physics.OverlapSphere(this.gameObject.transform.position, rad);
         foreach (Collider hit in hitTargets)
         {
-            Debug.Log(hit.tag);
+            //Debug.Log(hit.tag);
             if (hit.tag == "Enemy")
 			{
 				Kills.kills++;
