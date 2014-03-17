@@ -58,6 +58,7 @@ public class WeaponBomb : MonoBehaviour
         foreach (Collider hit in hitTargets)
         {
             //Debug.Log(hit.tag);
+
             if (hit.tag == "Enemy")
 			{
 				Kills.kills++;

@@ -13,6 +13,7 @@ public class Acid : MonoBehaviour {
 	public Vector3 acidOffSet;
     private float countAcid = 0;
     private float counterTime = 0;
+
     [HideInInspector]
     public bool isReady;
 
@@ -20,6 +21,7 @@ public class Acid : MonoBehaviour {
 	{
         acidRefreshTimes = new Queue<float>();
     	acidOffSet = this.gameObject.transform.right * -1.5f;
+
         acidObject = Resources.Load("Acid");
 	}
 
@@ -35,6 +37,7 @@ public class Acid : MonoBehaviour {
             isReady = false;
         else
             isReady = true;
+
     }
 
     public void Attack(float direction)
