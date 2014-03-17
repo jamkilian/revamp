@@ -11,7 +11,7 @@ public class Acid : MonoBehaviour {
 	public Vector3 ObjectSpawnPosition;
 	public Object acidObject;
 	public Vector3 acidOffSet;
-<<<<<<< HEAD
+
 	[HideInInspector]
 	public bool isReady;
 
@@ -20,20 +20,7 @@ public class Acid : MonoBehaviour {
 		acidRefreshTimes = new Queue<float>();
 		acidOffSet = this.gameObject.transform.right * -1.5f;
 		acidObject = Resources.Load("Acid");
-=======
-    private float countAcid = 0;
-    private float counterTime = 0;
 
-    [HideInInspector]
-    public bool isReady;
-
-	void Start()
-	{
-        acidRefreshTimes = new Queue<float>();
-    	acidOffSet = this.gameObject.transform.right * -1.5f;
-
-        acidObject = Resources.Load("Acid");
->>>>>>> master
 	}
 
 	void Update()
@@ -44,20 +31,13 @@ public class Acid : MonoBehaviour {
 				acidRefreshTimes.Dequeue();
 		}
 
-<<<<<<< HEAD
+
 		if (acidRefreshTimes.Count >= maxAcid)
 			isReady = false;
 		else
 			isReady = true;
 	}
-=======
-        if (acidRefreshTimes.Count >= maxAcid)
-            isReady = false;
-        else
-            isReady = true;
 
-    }
->>>>>>> master
 
 	public void Attack(float direction)
 	{
