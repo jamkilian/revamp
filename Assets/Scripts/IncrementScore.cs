@@ -8,6 +8,7 @@ public class IncrementScore : MonoBehaviour {
 		if (other.gameObject.tag == "Enemy")
 		{
 			//Debug.Log ("Killed Enemy");
+
 			Kills.kills++;
 		}
 

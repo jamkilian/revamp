@@ -54,6 +54,7 @@ public class WeaponBomb : MonoBehaviour
 		Gizmos.DrawWireSphere(this.gameObject.transform.position, rad);
 	}
 
+<<<<<<< HEAD
 	void BombExplode()
 	{
 		Collider[] hitTargets;
@@ -62,6 +63,17 @@ public class WeaponBomb : MonoBehaviour
 		{
 			//Debug.Log(hit.tag);
 			if (hit.tag == "Enemy")
+=======
+    void BombExplode()
+    {
+        Collider[] hitTargets;
+        hitTargets = Physics.OverlapSphere(this.gameObject.transform.position, rad);
+        foreach (Collider hit in hitTargets)
+        {
+            //Debug.Log(hit.tag);
+
+            if (hit.tag == "Enemy")
+>>>>>>> master
 			{
 				Kills.kills++;
 				hit.SendMessage("Destroy");

@@ -11,6 +11,7 @@ public class Bomb : MonoBehaviour
     private Object bombObject;
     private Vector3 bombOffset;
     [HideInInspector]
+
     public bool isReady;
 
     void Start()
@@ -19,6 +20,7 @@ public class Bomb : MonoBehaviour
         bombObject = Resources.Load("Bomb");
         bombOffset = this.gameObject.transform.right + new Vector3(3, 0, 0);
     }
+
 
     void Update () 
     {
@@ -35,8 +37,6 @@ public class Bomb : MonoBehaviour
             isReady = true;
 
     }
-
-    
 
     public void Attack(float direction)
     {
