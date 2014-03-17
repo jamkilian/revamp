@@ -10,8 +10,6 @@ public class Bomb : MonoBehaviour
 
     private Object bombObject;
     private Vector3 bombOffset;
-    private int countBomb = 0;
-    private float counterTime = 0.0f;
     [HideInInspector]
 
     public bool isReady;
@@ -42,11 +40,12 @@ public class Bomb : MonoBehaviour
 
     public void Attack(float direction)
     {
-        if (countBomb < maxBomb)
+        if (bombRefreshTimes.Count < maxBomb)
         {
             GameObject bombInstance = (GameObject)Instantiate(bombObject, this.gameObject.transform.position + -(direction * bombOffset), transform.rotation);
             bombInstance.gameObject.rigidbody.AddForce(transform.right * -100);
             bombRefreshTimes.Enqueue(Time.time + bombRefresh);
+            Debug.Log(Time.time + bombRefresh + " " + Time.time);
         }
     }
 }
