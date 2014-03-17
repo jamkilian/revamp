@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class EnemyScript : MonoBehaviour 
 {
     public float speed = 5f;
-    public float normalSpeed = 5f;
+    public float normalSpeed = 9f;
     public Vector3 target = new Vector3(3000, 0, 0);
     private float zLanePosition;
 	Object flameObject;
