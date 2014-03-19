@@ -10,7 +10,7 @@ public class Turret : MonoBehaviour
 	 * 
 	 */
 	private float turretDistance = 15;
-	Ray hitRange;
+	public Ray hitRange;
 
 	// Use this for initialization
 	void Start()

@@ -60,7 +60,7 @@ public class PlayerScript : MonoBehaviour
             bombClass.Attack(DetectForward());
         if(Input.GetKeyDown(KeyCode.Space))
 		{
-			AudioSource.PlayClipAtPoint(acidSound, transform.position);
+			//AudioSource.PlayClipAtPoint(acidSound, transform.position);
            	acidClass.Attack(DetectForward());
 		}
 	}
@@ -149,10 +149,14 @@ public class PlayerScript : MonoBehaviour
             directionVector = directionVector * directionLength;
         }
 
-        if (directionVector.x > 0)
+        if (directionVector.x > 0){
             transform.rotation = new Quaternion(0, 180, 0, 0);
-        if (directionVector.x < 0)
+			//swordClass.StartRotation(0);
+		}
+        else if (directionVector.x < 0){
             transform.rotation = new Quaternion(0, 0, 0, 0);
+            //swordClass.StartRotation(1);
+		}
         
         motor.inputMoveDirection = directionVector;
         lastVelocity = directionVector.x;

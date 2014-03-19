@@ -13,8 +13,8 @@ public class Sword : MonoBehaviour
     //Transforms for Lerp
     private Vector3 startPos;
     private Vector3 endPos;
-    private Quaternion startForwardRot;
-    private Quaternion startBackwardRot;
+    public Quaternion startForwardRot;
+    public Quaternion startBackwardRot;
     private float speed = 20f;
     private float startTime;
     private float swordLength;
@@ -35,12 +35,28 @@ public class Sword : MonoBehaviour
     {
         return this.gameObject.transform.forward.z;
     }
+	
+	public void StartRotation(int direction)
+	{
+		if (direction == 1)//Forward
+		{
+			swordGO.transform.rotation = startForwardRot;
+		}
+		else if (direction == 0) //Backward
+		{
+			swordGO.transform.rotation = startBackwardRot;
+		}
+	}
 
     public void Attack()
     {
         startTime = Time.time;
         SwordOn();
 		isAttacking = true;
+		if (DetectForward() == -1)
+			swordGO.transform.rotation = startBackwardRot;
+		else
+			swordGO.transform.rotation = startForwardRot;			
     }
 
     private void LoadSword()
@@ -50,6 +66,7 @@ public class Sword : MonoBehaviour
         swordGO.transform.parent = this.gameObject.transform;
         startForwardRot = swordGO.transform.rotation;
         startBackwardRot = new Quaternion(90f,0,0,90f);
+        Debug.Log(startForwardRot + " " + startBackwardRot);
 
         //Get Trail Renderer
         swordTrail = swordGO.gameObject.GetComponent<TrailRenderer>();
@@ -87,6 +104,7 @@ public class Sword : MonoBehaviour
             }
             swordLength = Vector3.Distance(startPos, endPos);
             isReady = false;
+			Debug.Log(swordGO.transform.rotation);
             MoveSword();
         }
 	}
@@ -95,17 +113,12 @@ public class Sword : MonoBehaviour
     {
         float distCovered = (Time.time - startTime) * speed;
         float fracDistance = distCovered / swordLength;
-        //Debug.Log(fracDistance);
         swordGO.transform.position = Vector3.Lerp(startPos, endPos, fracDistance);
         swordGO.transform.Rotate(0, 0, CalcRotation(fracDistance, lastDistance));
         lastDistance = fracDistance;
         if (swordGO.transform.position == endPos)
         {
             isAttacking = false;
-            if (DetectForward() == 1)
-                swordGO.transform.rotation = startForwardRot;
-            else
-                swordGO.transform.rotation = startBackwardRot;
             swordGO.transform.position = startPos;
             lastDistance = 0;
             isReady = true;

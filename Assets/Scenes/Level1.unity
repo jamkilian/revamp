@@ -637,6 +637,7 @@ MonoBehaviour:
   acidOn: {fileID: 2800000, guid: 7b92f23380ca7ea4a882d9a2aef56453, type: 3}
   acidOff: {fileID: 0}
   swordSound: {fileID: 8300000, guid: 78b4347c3f2953e42911af3c7860ab6d, type: 3}
+  acidSound: {fileID: 0}
 --- !u!33 &683503441
 MeshFilter:
   m_ObjectHideFlags: 0
