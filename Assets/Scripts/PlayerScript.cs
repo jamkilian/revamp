@@ -8,7 +8,6 @@ public class PlayerScript : MonoBehaviour
     public float maxVelocity = 20f;
     public float laneSpace = 7f;
     private CharacterMotor motor;
-    private string debugMessage;
     private float lastVelocity;
     private Sword swordClass;
     private Bomb bombClass;
@@ -25,7 +24,7 @@ public class PlayerScript : MonoBehaviour
 
 	//sounds
 	public AudioClip swordSound;
-	//public AudioClip acidSound;
+	public AudioClip acidSound;
 
 	// Use this for initialization
 	void Start () 
@@ -52,18 +51,18 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
 		{
             if (swordClass.isReady)
-				{
-					AudioSource.PlayClipAtPoint(swordSound, transform.position);
-                	swordClass.Attack();
-				}
+			{
+				AudioSource.PlayClipAtPoint(swordSound, transform.position);
+               	swordClass.Attack();
+			}
 		}
         if (Input.GetKeyDown(KeyCode.Mouse1))
             bombClass.Attack(DetectForward());
         if(Input.GetKeyDown(KeyCode.Space))
-			{
-				//AudioSource.PlayClipAtPoint(acidSound, transform.position);
-            	acidClass.Attack(DetectForward());
-			}
+		{
+			AudioSource.PlayClipAtPoint(acidSound, transform.position);
+           	acidClass.Attack(DetectForward());
+		}
 	}
 
     void FixedUpdate()
@@ -149,7 +148,6 @@ public class PlayerScript : MonoBehaviour
             // Multiply the normalized direction vector by the modified length
             directionVector = directionVector * directionLength;
         }
-        debugMessage = (directionVector).ToString();
 
         if (directionVector.x > 0)
             transform.rotation = new Quaternion(0, 180, 0, 0);
