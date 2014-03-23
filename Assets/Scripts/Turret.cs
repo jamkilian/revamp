@@ -13,27 +13,37 @@ public class Turret : MonoBehaviour
 	public Ray hitRange;
 
 	// Use this for initialization
-	void Start()
+	private void Start()
 	{
 		hitRange = new Ray(this.gameObject.transform.position, this.gameObject.transform.forward * turretDistance);
 	}
 
 	// Update is called once per frame
-	void Update()
+	private void Update()
 	{
-		Debug.DrawRay(this.gameObject.transform.position, this.gameObject.transform.forward * 15, Color.cyan, 5f);
-
+		Debug.DrawRay(this.gameObject.transform.position, this.gameObject.transform.forward * turretDistance, Color.cyan, 5f);
+		AttackTarget(SearchForTarget());
+		
+	}
+	
+	private void AttackTarget(Collider targetCollider)
+	{
+		Debug.Log(targetCollider);
+		if(targetCollider.tag == "Enemy")
+		{
+			targetCollider.SendMessage ("Destroy");
+		}
 	}
 
-	Collider SearchForTarget()
+	private Collider SearchForTarget()
 	{
 		RaycastHit hit;
-		if (Physics.Raycast(hitRange, out hit))
+		if (Physics.Raycast(hitRange, out hit, turretDistance))
 		{
-
 			return hit.collider;
 		}
-		else{
+		else
+		{
 			return hit.collider;
 		}
 	}
