@@ -7,7 +7,10 @@ public class EnemyScript : MonoBehaviour
 
 	public float currentSpeed = 5f;
 	public float normalSpeed = 5f;
-	public Vector3 target = new Vector3(3000, 0, 0);
+    private bool keepWalking = true;
+    private GameObject target;
+	private Vector3 targetPosition;
+	private ServerHealth sh;
 	private float zLanePosition;
     Object flameObject;
 	GameObject spawnedFlame;
@@ -17,8 +20,10 @@ public class EnemyScript : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		target = GameObject.Find("Server");
+		sh = (ServerHealth)target.GetComponent("ServerHealth");
 		zLanePosition = DetermineLane();
-		target = new Vector3(target.x, target.y, zLanePosition);
+		targetPosition = new Vector3(target.collider.transform.position.x, target.collider.transform.position.y, zLanePosition);
 		flameObject = Resources.Load("Flame");
 	}
 
@@ -31,13 +36,28 @@ public class EnemyScript : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		float step = currentSpeed * Time.deltaTime;
-		this.gameObject.transform.position = Vector3.MoveTowards(
-			this.gameObject.transform.position, target, step);
-
+        if (keepWalking)//Hasn't collided with server colliderbox
+        {
+            float step = speed * Time.deltaTime;
+            this.gameObject.transform.position = Vector3.MoveTowards(
+                this.gameObject.transform.position, targetPosition, step);
+        }
+        
 	}
 
-	
+	void OnTriggerEnter (Collider other)
+	{
+		 if (other.gameObject.name == "Server")
+		{
+			//Debug.Log("Collided with server");
+            keepWalking = false;
+			EnemyAnimation walk;
+			walk = this.GetComponent<EnemyAnimation>();
+			walk.iswalk = true;
+			sh.AddjustCurrentHealth(-10);
+			
+		}		
+	}
 
 	void Destroy()
 	{

@@ -1,15 +1,19 @@
-﻿<Properties>
+﻿
+﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemyScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Turret.cs">
     <Files>
+      <File FileName="Assets\Scripts\Turret.cs" Line="26" Column="46" />
+      <File FileName="Assets\Scripts\Acid.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Turret_Bullet.cs" Line="8" Column="26" />
       <File FileName="Assets\Scripts\EnemyScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\WeaponBomb.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Bomb.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Sword.cs" Line="22" Column="29" />
+      <File FileName="Assets\Scripts\WeaponAcid.cs" Line="24" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+
 </Properties>
