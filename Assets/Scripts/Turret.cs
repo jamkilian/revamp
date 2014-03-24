@@ -9,13 +9,25 @@ public class Turret : MonoBehaviour
 	 * 
 	 * 
 	 */
+	private Object bulletPrefab;
 	private float turretDistance = 15;
 	public Ray hitRange;
 
 	// Use this for initialization
 	private void Start()
 	{
+		bulletPrefab = Resources.Load("TurretBullet");
 		hitRange = new Ray(this.gameObject.transform.position, this.gameObject.transform.forward * turretDistance);
+	}
+	
+	//Initiailize the bullet with location, and target
+	private void ShootBullet(Collider targetCollider)
+	{
+		Transform barrelPosition = transform.Find("Turret_Barrel");
+		GameObject bullet = Instantiate(bulletPrefab, barrelPosition.position, Quaternion.identity) as GameObject;
+		Turret_Bullet bulletScript = bullet.GetComponent<Turret_Bullet>();
+		bulletScript.Initialize(targetCollider);
+		
 	}
 
 	// Update is called once per frame
@@ -23,15 +35,16 @@ public class Turret : MonoBehaviour
 	{
 		Debug.DrawRay(this.gameObject.transform.position, this.gameObject.transform.forward * turretDistance, Color.cyan, 5f);
 		AttackTarget(SearchForTarget());
-		
 	}
 	
 	private void AttackTarget(Collider targetCollider)
 	{
 		Debug.Log(targetCollider);
-		if(targetCollider.tag == "Enemy")
-		{
-			targetCollider.SendMessage ("Destroy");
+		if(targetCollider != null){
+			if(targetCollider.tag == "Enemy")
+			{
+				ShootBullet(targetCollider);
+			}
 		}
 	}
 
