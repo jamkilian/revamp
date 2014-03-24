@@ -4,11 +4,12 @@ using System.Collections.Generic;
 
 public class EnemyScript : MonoBehaviour 
 {
+
 	public float currentSpeed = 5f;
 	public float normalSpeed = 5f;
 	public Vector3 target = new Vector3(3000, 0, 0);
 	private float zLanePosition;
-	Object flameObject;
+    Object flameObject;
 	GameObject spawnedFlame;
 	Dictionary<string, float> enemySpeeds = new Dictionary<string,float>();
 
