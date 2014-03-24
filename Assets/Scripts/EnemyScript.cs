@@ -35,7 +35,7 @@ public class EnemyScript : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-        if (keepWalking)//Collision with server colliderbox
+        if (keepWalking)//Hasn't collided with server colliderbox
         {
             float step = speed * Time.deltaTime;
             this.gameObject.transform.position = Vector3.MoveTowards(
