@@ -4,14 +4,15 @@ using System.Collections.Generic;
 
 public class EnemyScript : MonoBehaviour 
 {
-	public float speed = 5f;
+
+	public float currentSpeed = 5f;
 	public float normalSpeed = 5f;
     private bool keepWalking = true;
     private GameObject target;
 	private Vector3 targetPosition;
 	private ServerHealth sh;
 	private float zLanePosition;
-	Object flameObject;
+    Object flameObject;
 	GameObject spawnedFlame;
 	Dictionary<string, float> enemySpeeds = new Dictionary<string,float>();
 
@@ -67,6 +68,12 @@ public class EnemyScript : MonoBehaviour
 
 	void NormalSpeed()
 	{
-		speed = normalSpeed;
+		currentSpeed = normalSpeed;
 	}
+    public void SetSpeed(float S)
+    {
+        currentSpeed = S;
+        normalSpeed = S;
+
+    }
 }

@@ -40,7 +40,7 @@ public class WeaponAcid : MonoBehaviour
 		if (other.gameObject.tag == "Enemy")
 		{
 			enemy = other.GetComponent<EnemyScript>();
-			enemy.speed = slow;
+			enemy.currentSpeed = slow;
 			slowedEnemies.Add(other);
 		}
 	}
