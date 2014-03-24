@@ -33,6 +33,8 @@ public class Spawner : MonoBehaviour
 			
 			//Spawning the enemy
 			_spawnedEnemy = Instantiate(enemyToSpawn, _t.position, Quaternion.identity) as GameObject;
+            EnemyScript es = _spawnedEnemy.GetComponent<EnemyScript>();
+            es.SetSpeed(baseEnemySpeed);
 		}
 	}
 

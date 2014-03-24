@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class EnemyScript : MonoBehaviour 
 {
-	public float speed = 5f;
+	public float currentSpeed = 5f;
 	public float normalSpeed = 5f;
 	public Vector3 target = new Vector3(3000, 0, 0);
 	private float zLanePosition;
@@ -30,16 +30,13 @@ public class EnemyScript : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		float step = speed * Time.deltaTime;
+		float step = currentSpeed * Time.deltaTime;
 		this.gameObject.transform.position = Vector3.MoveTowards(
 			this.gameObject.transform.position, target, step);
 
 	}
 
-	void OnTriggerEnter()
-	{
-
-	}
+	
 
 	void Destroy()
 	{
@@ -50,6 +47,12 @@ public class EnemyScript : MonoBehaviour
 
 	void NormalSpeed()
 	{
-		speed = normalSpeed;
+		currentSpeed = normalSpeed;
 	}
+    public void SetSpeed(float S)
+    {
+        currentSpeed = S;
+        normalSpeed = S;
+
+    }
 }
