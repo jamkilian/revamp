@@ -27,7 +27,7 @@ public class AcidSlow : MonoBehaviour
 			EnemyScript enemy;
 			enemy = other.GetComponent<EnemyScript>();
 			Debug.Log (enemy);
-			enemy.speed = slow;
+			enemy.currentSpeed = slow;
 			Debug.Log("Acid");
 
 			/*if (fast == true)
