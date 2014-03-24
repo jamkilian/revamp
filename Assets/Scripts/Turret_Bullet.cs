@@ -5,7 +5,7 @@ public class Turret_Bullet : MonoBehaviour
 {
 	private GameObject target;	
 	private Collider targetCollider;
-	private float speed = 12f;
+	private float speed = 15f;
 	
 	// Use this for initialization
 	void Start () {	

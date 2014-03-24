@@ -38,7 +38,7 @@ public class EnemyScript : MonoBehaviour
 	{
         if (keepWalking)//Hasn't collided with server colliderbox
         {
-            float step = speed * Time.deltaTime;
+            float step = currentSpeed * Time.deltaTime;
             this.gameObject.transform.position = Vector3.MoveTowards(
                 this.gameObject.transform.position, targetPosition, step);
         }
