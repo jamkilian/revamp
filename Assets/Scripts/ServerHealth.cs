@@ -24,7 +24,6 @@ public class ServerHealth : MonoBehaviour
 	}
 	void OnGUI()
 	{
-		
 		GUI.Box (new Rect(10,10,healthBarLength,20), curHealth + "/" + maxHealth);
 	}
 	public void AddjustCurrentHealth(int adj)
