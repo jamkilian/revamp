@@ -31,7 +31,7 @@ public class PlayerScript : MonoBehaviour
 	{
 		motor = GetComponent<CharacterMotor>();
 
-        cameraScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>();
+		cameraScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraScript>();
 		
 		//Add Sword
 		this.gameObject.AddComponent<Sword>();

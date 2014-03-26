@@ -15,7 +15,6 @@ public class EnemyScript : MonoBehaviour
     private 
     Object flameObject;
     GameObject spawnedFlame;
-    Dictionary<string, float> enemySpeeds = new Dictionary<string, float>();
 
 
     // Use this for initialization

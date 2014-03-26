@@ -82,10 +82,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e299e7eabe51c45bd40e23f119bf95, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ef263c93bfd46742a2411aa24ac0c27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombSound: {fileID: 8300000, guid: 11e9a113f3f3f3449b20b37fe645e96b, type: 3}
+  counter: 0
+  counter2: 0
+  rad: 5
+  explode: 0
+  bombSound: {fileID: 0}
+  spawnedExpl: {fileID: 0}
+  explosion: {fileID: 0}
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1
