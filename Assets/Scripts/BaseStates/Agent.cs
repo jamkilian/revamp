@@ -15,6 +15,7 @@ public class Agent : MonoBehaviour
     {
         while (state.MoveNext())
         {
+            Debug.Log("I'm in " + state);
             yield return state.Current;
         }
     }
