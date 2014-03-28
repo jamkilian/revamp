@@ -23,7 +23,7 @@ public class Turret : MonoBehaviour
 	//Initiailize the bullet with location, and target
 	private void ShootBullet(Collider targetCollider)
 	{
-		Debug.Log("Shooting!");
+		//Debug.Log("Shooting!");
 		Transform barrelPosition = transform.Find("Turret_Barrel");
 		GameObject bullet = Instantiate(bulletPrefab, barrelPosition.position, Quaternion.identity) as GameObject;
 		Turret_Bullet bulletScript = bullet.GetComponent<Turret_Bullet>();
@@ -40,7 +40,7 @@ public class Turret : MonoBehaviour
 	
 	private void AttackTarget(Collider targetCollider)
 	{
-		Debug.Log(targetCollider);
+		//Debug.Log(targetCollider);
 		if(targetCollider != null){
 			if(targetCollider.tag == "Enemy")
 			{

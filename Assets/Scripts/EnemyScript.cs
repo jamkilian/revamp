@@ -11,8 +11,7 @@ public class EnemyScript : MonoBehaviour
     private bool keepWalking = true;
     private GameObject target;
     private Vector3 targetPosition;
-    private ServerHealth sh;
-    private 
+    private ServerHealth sh; 
     Object flameObject;
     GameObject spawnedFlame;
 

@@ -6,6 +6,9 @@ public class DeadState : IState
 {
     protected Agent owner;
     private int counter;
+	public delegate void DeadEventHandler();
+	public static event DeadEventHandler OnDeath;
+	
 
     public DeadState(Agent owner)
     {
@@ -15,6 +18,7 @@ public class DeadState : IState
     public void Enter()
     {
         Debug.Log("Entering the Dead state");
+		OnDeath();
         owner.StartCoroutine("StateWrapper", this.Execute());
     }
 
