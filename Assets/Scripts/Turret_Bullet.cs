@@ -25,9 +25,16 @@ public class Turret_Bullet : MonoBehaviour
 	private void TraceToTarget(){
 		float step = speed * Time.deltaTime;
 		//Debug.Log(step);
-		this.gameObject.transform.position = Vector3.MoveTowards(
+		try{
+			this.gameObject.transform.position = Vector3.MoveTowards(
 			this.gameObject.transform.position, target.transform.position, step);
+		}
+		catch(MissingReferenceException){
+			//Target was destroyed
+			Destroy(this.gameObject);
+		}
 	}
+
 	
 	private void OnTriggerEnter(Collider hit)
 	{

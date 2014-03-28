@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 108: {fileID: 10800000}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Spotlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,11 +27,11 @@ GameObject:
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
   - 143: {fileID: 14300000}
-  - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
-  - 114: {fileID: 11400006}
+  - 114: {fileID: 11400002}
   - 114: {fileID: 11400004}
-  m_Layer: 0
+  - 114: {fileID: 11400006}
+  m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.6140909, y: 0, z: 0}
+  m_LocalPosition: {x: 2.29657078, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400000}
@@ -132,26 +132,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e9e0a16c2c08f245aa15a8f0c00a9a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxVelocity: 20
-  laneSpace: 7
-  swordOn: {fileID: 2800000, guid: 2f80eb2256f8b6f4c8ad78e466635d8a, type: 3}
-  swordOff: {fileID: 2800000, guid: 2f80eb2256f8b6f4c8ad78e466635d8a, type: 3}
-  bombOn: {fileID: 2800000, guid: e13ac0a9a0d485e4591ce0fc0f6164a4, type: 3}
-  bombOff: {fileID: 0}
-  acidOn: {fileID: 2800000, guid: 7b92f23380ca7ea4a882d9a2aef56453, type: 3}
-  acidOff: {fileID: 0}
-  swordSound: {fileID: 8300000, guid: 78b4347c3f2953e42911af3c7860ab6d, type: 3}
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29c7e7f4c5eb99d489864c5a0d2009e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -197,7 +177,40 @@ MonoBehaviour:
     slidingSpeed: 15
     sidewaysControl: 1
     speedControl: .400000006
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9e0a16c2c08f245aa15a8f0c00a9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxVelocity: 20
+  laneSpace: 7
+  swordOn: {fileID: 2800000, guid: 2f80eb2256f8b6f4c8ad78e466635d8a, type: 3}
+  swordOff: {fileID: 2800000, guid: 2f80eb2256f8b6f4c8ad78e466635d8a, type: 3}
+  bombOn: {fileID: 2800000, guid: e13ac0a9a0d485e4591ce0fc0f6164a4, type: 3}
+  bombOff: {fileID: 0}
+  acidOn: {fileID: 2800000, guid: 7b92f23380ca7ea4a882d9a2aef56453, type: 3}
+  acidOff: {fileID: 0}
+  swordSound: {fileID: 8300000, guid: 78b4347c3f2953e42911af3c7860ab6d, type: 3}
+  acidSound: {fileID: 0}
 --- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ef8a5e217460314c9babaad4c0c7166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myskin: {fileID: 11400000, guid: ae0c720eeaf42fe44bec7e5c0e2299e5, type: 2}
+--- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -212,18 +225,6 @@ MonoBehaviour:
   playerWalk2: {fileID: 2800000, guid: 1655ce0e5771b394a91a22b947604f5a, type: 3}
   playerStill1: {fileID: 2800000, guid: 8afd6804fa4e0ec4ab0748bc67f6231f, type: 3}
   playerStill2: {fileID: 2800000, guid: 241d868655e89eb4cad9cb3a3a619604, type: 3}
---- !u!114 &11400006
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ef8a5e217460314c9babaad4c0c7166, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myskin: {fileID: 11400000, guid: ae0c720eeaf42fe44bec7e5c0e2299e5, type: 2}
 --- !u!143 &14300000
 CharacterController:
   m_ObjectHideFlags: 1

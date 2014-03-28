@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Turret : MonoBehaviour
 {
@@ -12,12 +13,16 @@ public class Turret : MonoBehaviour
 	private Object bulletPrefab;
 	private float turretDistance = 15;
 	public Ray hitRange;
+	public float turretDelay = 2.7f;
+	private Queue<float> turretRefreshTimes;
 
 	// Use this for initialization
 	private void Start()
 	{
 		bulletPrefab = Resources.Load("TurretBullet");
 		hitRange = new Ray(this.gameObject.transform.position, this.gameObject.transform.forward * turretDistance);
+
+		turretRefreshTimes = new Queue<float>();
 	}
 	
 	//Initiailize the bullet with location, and target
@@ -28,26 +33,28 @@ public class Turret : MonoBehaviour
 		GameObject bullet = Instantiate(bulletPrefab, barrelPosition.position, Quaternion.identity) as GameObject;
 		Turret_Bullet bulletScript = bullet.GetComponent<Turret_Bullet>();
 		bulletScript.Initialize(targetCollider);
-		
+		turretRefreshTimes.Enqueue(Time.time + turretDelay);
 	}
 
 	// Update is called once per frame
-	private void Update()
-	{
-		Debug.DrawRay(this.gameObject.transform.position, this.gameObject.transform.forward * turretDistance, Color.cyan, 5f);
-		AttackTarget(SearchForTarget());
-	}
-	
-	private void AttackTarget(Collider targetCollider)
-	{
-		//Debug.Log(targetCollider);
-		if(targetCollider != null){
-			if(targetCollider.tag == "Enemy")
-			{
-				ShootBullet(targetCollider);
-			}
-		}
-	}
+    private void Update()
+    {
+        Debug.DrawRay(this.gameObject.transform.position, this.gameObject.transform.forward * turretDistance, Color.cyan, 5f);
+        if (turretRefreshTimes.Count > 0)
+        {
+            if (turretRefreshTimes.Peek() <= Time.time)
+            {
+                AttackTarget(SearchForTarget());
+                turretRefreshTimes.Dequeue();
+            }
+        }
+        else
+        {
+            AttackTarget(SearchForTarget());
+            turretRefreshTimes.Enqueue(Time.time);
+            
+        }
+    }
 
 	private Collider SearchForTarget()
 	{
@@ -61,4 +68,18 @@ public class Turret : MonoBehaviour
 			return hit.collider;
 		}
 	}
+
+    private void AttackTarget(Collider targetCollider)
+    {
+        Debug.Log(targetCollider);
+        if (targetCollider != null)
+        {
+            if (targetCollider.tag == "Enemy")
+            {
+                ShootBullet(targetCollider);
+            }
+        }
+    }
+
+	
 }
