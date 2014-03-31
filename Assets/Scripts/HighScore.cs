@@ -2,7 +2,19 @@
 using System.Collections;
 
 public class HighScore : MonoBehaviour {
-
+	private int score = 0;
+	
+	void Awake()
+	{
+		DeadState.OnDeath += IncreaseScore;
+	}
+	
+	void IncreaseScore()
+	{
+		score += 10;
+		Debug.Log(score);	
+	}
+	
 	void OnGUI()
 	{
 		/*if(GUI.Button(new Rect(240,90,160,40),"Play Again"))
