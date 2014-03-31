@@ -4,12 +4,15 @@ using System.Collections.Generic;
 
 public class AttackState : IState
 {
+    GameObject target;
     protected Agent owner;
-    private int counter;
+    private float attackDamage;
 
-    public AttackState(Agent owner)
+    public AttackState(Agent owner, GameObject target, float attackDamage)
     {
         this.owner = owner;
+        this.target = target;
+        this.attackDamage = attackDamage;
     }
 
     public void Enter()
@@ -24,10 +27,10 @@ public class AttackState : IState
     /// <returns></returns>
     public IEnumerator Execute()
     {
-        while (counter < 10)
+        while (target)
         {
-            Debug.Log("Executing Attack State");
-            counter++;
+            //if (attackDelay )
+            target.SendMessage("TakeDamage", attackDamage);
             yield return null;
         }
         this.Exit();

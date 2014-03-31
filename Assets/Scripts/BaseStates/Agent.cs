@@ -20,7 +20,12 @@ public class Agent : MonoBehaviour
         }
     }
 
-    void Destroy()
+    public void AgentAttack(GameObject go, float damage)
+    {
+        this.FSM.ChangeState(new AttackState(this, go, damage));
+    }
+
+    public void AgentDestroy()
     {
         //If we want to change state we call
         this.FSM.ChangeState(new DeadState(this));

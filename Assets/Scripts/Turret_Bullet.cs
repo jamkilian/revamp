@@ -6,6 +6,7 @@ public class Turret_Bullet : MonoBehaviour
 	private GameObject target;	
 	private Collider targetCollider;
 	private float speed = 15f;
+	private float attackDamage = 50f;
 	
 	// Use this for initialization
 	void Start () {	
@@ -28,6 +29,7 @@ public class Turret_Bullet : MonoBehaviour
 		try{
 			this.gameObject.transform.position = Vector3.MoveTowards(
 			this.gameObject.transform.position, target.transform.position, step);
+			//Debug.Log("I'm at : " + gameObject.transform.position + " to : " + target.transform.position);
 		}
 		catch(MissingReferenceException){
 			//Target was destroyed
@@ -36,12 +38,14 @@ public class Turret_Bullet : MonoBehaviour
 	}
 
 	
-	private void OnTriggerEnter(Collider hit)
+	private void OnTriggerStay(Collider hit)
 	{
+		Debug.Log("I Hit " + hit);
+
 		if(hit.tag == "Enemy")
 		{
-			hit.SendMessage("Destroy");	
-			Destroy (this.gameObject);
+			hit.SendMessage("TakeDamage", attackDamage);
+			Destroy(this.gameObject);
 		}
 	}
 }

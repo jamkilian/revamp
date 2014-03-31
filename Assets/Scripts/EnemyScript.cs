@@ -2,20 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class EnemyScript : MonoBehaviour
+public class EnemyScript : BaseDestroyable
 {
-    public float currentHealth = 100f;
-    public float maxHealth = 100f;
+    
     public float currentSpeed = 5f;
     public float normalSpeed = 5f;
     private bool keepWalking = true;
-    private GameObject target;
     private Vector3 targetPosition;
-    private ServerHealth sh; 
-    Object flameObject;
-    GameObject spawnedFlame;
-
-
+    private ServerHealth sh;
+    private Agent agentScript;
+    
     // Use this for initialization
     void Start()
     {
@@ -24,6 +20,9 @@ public class EnemyScript : MonoBehaviour
         float zLanePosition = DetermineLane();
         targetPosition = new Vector3(target.collider.transform.position.x, target.collider.transform.position.y, zLanePosition);
         flameObject = Resources.Load("Flame");
+
+        //Load in Agent script on this object, to track states
+        agentScript = gameObject.GetComponent<Agent>();
     }
 
     private float DetermineLane()
@@ -46,29 +45,15 @@ public class EnemyScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Server")
+        //Debug.Log("Enemy was entered by: " + other.gameObject.name);
+        if (other.gameObject.name == "Server" || other.gameObject.name == "Turret")
         {
-            //Debug.Log("Collided with server");
             keepWalking = false;
             EnemyAnimation walk;
             walk = this.GetComponent<EnemyAnimation>();
             walk.iswalk = true;
-            sh.AddjustCurrentHealth(-10);
+            agentScript.AgentAttack(other.gameObject, attackDamage);
         }
-    }
-
-    public void TakeDamage(float damage)
-    {
-        if ((currentHealth -= damage) <= 0)
-            this.Destroy();
-
-    }
-
-    public void Destroy()
-    {
-        spawnedFlame = (GameObject)Instantiate(flameObject, this.gameObject.transform.position, this.gameObject.transform.rotation);
-        Destroy(this.gameObject);
-        Destroy(spawnedFlame, 3f);
     }
 
     void NormalSpeed()
@@ -79,5 +64,13 @@ public class EnemyScript : MonoBehaviour
     {
         currentSpeed = S;
         normalSpeed = S;
+    }
+
+    public void Destroy()
+    {
+        this.agentScript.AgentDestroy();
+        spawnedFlame = (GameObject)Instantiate(flameObject, this.gameObject.transform.position, this.gameObject.transform.rotation);
+        Destroy(this.gameObject);
+        Destroy(spawnedFlame, 3f);
     }
 }
