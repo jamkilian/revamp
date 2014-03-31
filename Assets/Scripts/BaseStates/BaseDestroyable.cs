@@ -4,12 +4,17 @@ using System.Collections.Generic;
 
 public class BaseDestroyable : MonoBehaviour
 {
-    public float attackDamage = 10f;
+    public float attackDamage = 15f;
     public float currentHealth = 100f;
     public float maxHealth = 100f;
     protected GameObject target;
     protected Object flameObject;
     protected GameObject spawnedFlame;
+
+    public void BaseStart()
+    {
+        flameObject = Resources.Load("Flame");
+    }
 
     public void TakeDamage(float damage)
     {

@@ -7,6 +7,8 @@ public class AttackState : IState
     GameObject target;
     protected Agent owner;
     private float attackDamage;
+    private float attackDelay = 3.0f;
+    private float attackRefresh = 0f;
 
     public AttackState(Agent owner, GameObject target, float attackDamage)
     {
@@ -29,8 +31,11 @@ public class AttackState : IState
     {
         while (target)
         {
-            //if (attackDelay )
-            target.SendMessage("TakeDamage", attackDamage);
+            if (attackRefresh <= Time.time)
+            {
+                target.SendMessage("TakeDamage", attackDamage);
+                attackRefresh = Time.time + attackDelay;
+            }
             yield return null;
         }
         this.Exit();

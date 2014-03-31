@@ -16,6 +16,7 @@ public class Turret : BaseDestroyable
 	// Use this for initialization
 	private void Start()
 	{
+		this.BaseStart();
 		bulletPrefab = Resources.Load("TurretBullet");
 		hitRange = new Ray(this.gameObject.transform.position, this.gameObject.transform.forward * turretDistance);
 	}

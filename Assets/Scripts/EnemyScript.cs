@@ -15,11 +15,11 @@ public class EnemyScript : BaseDestroyable
     // Use this for initialization
     void Start()
     {
+        this.BaseStart();
         target = GameObject.Find("Server");
         sh = (ServerHealth)target.GetComponent("ServerHealth");
         float zLanePosition = DetermineLane();
         targetPosition = new Vector3(target.collider.transform.position.x, target.collider.transform.position.y, zLanePosition);
-        flameObject = Resources.Load("Flame");
 
         //Load in Agent script on this object, to track states
         agentScript = gameObject.GetComponent<Agent>();
