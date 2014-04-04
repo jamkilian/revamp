@@ -13,7 +13,7 @@ public class EnemyScript : BaseDestroyable
     private Agent agentScript;
     
     // Use this for initialization
-    void Start()
+    protected void Start()
     {
         this.BaseStart();
         target = GameObject.Find("Server");
@@ -25,14 +25,14 @@ public class EnemyScript : BaseDestroyable
         agentScript = gameObject.GetComponent<Agent>();
     }
 
-    private float DetermineLane()
+    protected float DetermineLane()
     {
         float lane = this.gameObject.transform.position.z;
         return lane;
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         if (keepWalking)//Hasn't collided with server colliderbox
         {
@@ -43,7 +43,7 @@ public class EnemyScript : BaseDestroyable
 
     }
 
-    void OnTriggerEnter(Collider other)
+    protected void OnTriggerEnter(Collider other)
     {
         //Debug.Log("Enemy was entered by: " + other.gameObject.name);
         if (other.gameObject.name == "Server" || other.gameObject.name == "Turret")
@@ -56,7 +56,7 @@ public class EnemyScript : BaseDestroyable
         }
     }
 
-    void NormalSpeed()
+    protected void NormalSpeed()
     {
         currentSpeed = normalSpeed;
     }
