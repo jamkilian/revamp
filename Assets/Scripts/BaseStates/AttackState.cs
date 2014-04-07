@@ -4,12 +4,14 @@ using System.Collections.Generic;
 
 public class AttackState : IState
 {
+	#region Variables
     GameObject target;
     protected Agent owner;
     private float attackDamage;
     private float attackDelay = 3.0f;
     private float attackRefresh = 0f;
-
+	#endregion
+	
     public AttackState(Agent owner, GameObject target, float attackDamage)
     {
         this.owner = owner;
@@ -44,5 +46,6 @@ public class AttackState : IState
     public void Exit()
     {
         Debug.Log("Exiting Attack State");
+		owner.SendMessage("ContinueWalking");	
     }
 }

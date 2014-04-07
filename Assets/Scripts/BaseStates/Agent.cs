@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -19,8 +19,8 @@ public class Agent : MonoBehaviour
             yield return state.Current;
         }
     }
-
-    public void AgentAttack(GameObject go, float damage)
+	
+	public void AgentAttack(GameObject go, float damage)
     {
         this.FSM.ChangeState(new AttackState(this, go, damage));
     }

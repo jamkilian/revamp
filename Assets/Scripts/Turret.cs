@@ -57,7 +57,7 @@ public class Turret : BaseDestroyable
 
 	private void AttackTarget(Collider targetCollider)
 	{
-		Debug.Log(targetCollider);
+		//Debug.Log(targetCollider);
 		if (targetCollider != null)
 		{
 			if (targetCollider.tag == "Enemy")

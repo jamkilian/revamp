@@ -18,7 +18,7 @@ public class BaseDestroyable : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        Debug.Log(this.name + " is Taking damage! " + damage);
+        //Debug.Log(this.name + " is Taking damage! " + damage);
         if ((currentHealth -= damage) <= 0)
             this.Destroy();
     }
