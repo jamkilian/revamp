@@ -40,7 +40,7 @@ public class EnemyScript : BaseDestroyable
             this.gameObject.transform.position = Vector3.MoveTowards(
                 this.gameObject.transform.position, targetPosition, step);
         }
-
+		Debug.Log(agentScript.FSM);
     }
 
     protected void OnTriggerEnter(Collider other)
@@ -54,6 +54,16 @@ public class EnemyScript : BaseDestroyable
             walk.iswalk = true;
             agentScript.AgentAttack(other.gameObject, attackDamage);
         }
+    }
+
+    
+	
+    void ContinueWalking()
+    {
+        keepWalking = true;
+        EnemyAnimation walk;
+        walk = this.GetComponent<EnemyAnimation>();
+	walk.iswalk = false;
     }
 
     protected void NormalSpeed()
