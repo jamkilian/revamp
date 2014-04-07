@@ -3,8 +3,8 @@ using System.Collections;
 
 public class ServerHealth : MonoBehaviour 
 {
-	public int maxHealth = 100;
-	public int curHealth = 100;
+	public float maxHealth = 100f;
+	public float curHealth = 100f;
 	
 	public float healthBarLength;
 	
@@ -24,26 +24,19 @@ public class ServerHealth : MonoBehaviour
 	}
 	void OnGUI()
 	{
-		
 		GUI.Box (new Rect(10,10,healthBarLength,20), curHealth + "/" + maxHealth);
 	}
-	public void AddjustCurrentHealth(int adj)
+	public void TakeDamage(float damage)
 	{
-		curHealth += adj;
 		
-		if(curHealth < 1)
-		{
-			curHealth = 0;
-		}
 		
-		if(curHealth == 0)
+		if((curHealth -= damage) <= 0)
 		{
 			Application.LoadLevel("Credits");
 			//Object.Destroy(this.gameObject);
 			//Application.LoadLevel("Credits");
 		}
-		
-		if(curHealth > maxHealth)
+		else if(curHealth > maxHealth)
 		{
 			curHealth = maxHealth;
 		}

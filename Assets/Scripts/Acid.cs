@@ -20,7 +20,6 @@ public class Acid : MonoBehaviour {
 		acidRefreshTimes = new Queue<float>();
 		acidOffSet = this.gameObject.transform.right * -1.5f;
 		acidObject = Resources.Load("Acid");
-
 	}
 
 	void Update()
@@ -31,13 +30,11 @@ public class Acid : MonoBehaviour {
 				acidRefreshTimes.Dequeue();
 		}
 
-
 		if (acidRefreshTimes.Count >= maxAcid)
 			isReady = false;
 		else
 			isReady = true;
 	}
-
 
 	public void Attack(float direction)
 	{

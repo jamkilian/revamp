@@ -14,7 +14,16 @@ public class CameraScript : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	public void Update() {
         this.gameObject.transform.position = target.transform.position + new Vector3(xOffset, yOffset, zOffset);
     }
+
+    public void UpdateCamera()
+    {
+        this.gameObject.transform.position = target.transform.position + new Vector3(xOffset, yOffset, zOffset);
+    }
+	
+	public string TurdFergesson() {
+		return "It's a funny name.";
+	}
 }

@@ -1,12 +1,29 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EnemyScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BaseStates\DeadState.cs">
     <Files>
-      <File FileName="Assets\Scripts\EnemyScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\WeaponBomb.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Bomb.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\HighScore.cs" Line="12" Column="6" />
+      <File FileName="Assets\Scripts\BaseStates\Agent.cs" Line="12" Column="17" />
+      <File FileName="Assets\Scripts\BaseStates\DeadState.cs" Line="13" Column="34" />
+      <File FileName="Assets\Scripts\Turret.cs" Line="37" Column="8" />
+      <File FileName="Assets\Scripts\Turret_Bullet.cs" Line="27" Column="5" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="Scripts" expanded="True">
+              <Node name="BaseStates" expanded="True">
+                <Node name="DeadState.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+          <Node name="Assembly-UnityScript-firstpass" expanded="True">
+            <Node name="Standard Assets" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
