@@ -34,18 +34,20 @@ public class newWave : MonoBehaviour
                 EnemyScript es = EnemyPrefab.GetComponent<EnemyScript>();
                 es.SetSpeed(baseEnemySpeed);
                 yield return new WaitForSeconds (spawnWait);
+                
             }
             yield return new WaitForSeconds (waveWait);
+            newWave.waves++;
         }
     }
-    /*void Update()
+    void Update()
     {
         PlayerPrefs.SetInt("Waves", waves);
         PlayerPrefs.Save();
     }
     void OnGUI()
     {
-        GUI.Label(new Rect(0, 50, 100, 25), "Kills: " + kills);
-    }*/
+        GUI.Label(new Rect(0, 50, 100, 25), "Waves: " + waves);
+    }
 }
 

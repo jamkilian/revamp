@@ -17,6 +17,7 @@ public class WeaponSword : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
 			other.SendMessage("Destroy");
+            Kills.kills++;
 			AudioSource.PlayClipAtPoint(deathSound, transform.position);
         }
     }
