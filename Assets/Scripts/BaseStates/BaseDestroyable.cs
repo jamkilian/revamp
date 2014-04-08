@@ -29,6 +29,4 @@ public class BaseDestroyable : MonoBehaviour
         Destroy(this.gameObject);
         Destroy(spawnedFlame, 3f);
     }
-
-
 }

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class EnemyScript : BaseDestroyable
 {
-    
     public float currentSpeed = 5f;
     public float normalSpeed = 5f;
     private bool keepWalking = true;
@@ -40,7 +39,6 @@ public class EnemyScript : BaseDestroyable
             this.gameObject.transform.position = Vector3.MoveTowards(
                 this.gameObject.transform.position, targetPosition, step);
         }
-
     }
 
     protected void OnTriggerEnter(Collider other)
@@ -60,6 +58,7 @@ public class EnemyScript : BaseDestroyable
     {
         currentSpeed = normalSpeed;
     }
+
     public void SetSpeed(float S)
     {
         currentSpeed = S;

@@ -184,7 +184,7 @@ MonoBehaviour:
   robotWalk2: {fileID: 2800000, guid: f52385492d28ce2478038a69e406e228, type: 3}
   robotWalk3: {fileID: 2800000, guid: 76fc2ea8b479f214088d4c2dc44478b0, type: 3}
   iswalk: 0
-  robotstill: {fileID: 2800000, guid: f52385492d28ce2478038a69e406e228, type: 3}
+  robotStill: {fileID: 0}
 --- !u!114 &32469770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,9 +197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737571cdc13d81a4cb1b3444a0acf1ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 15
-  currentHealth: 100
-  maxHealth: 100
+  attackDamage: 35
+  currentHealth: 1000
+  maxHealth: 1000
   currentSpeed: 5
   normalSpeed: 5
 --- !u!54 &32469771
@@ -537,7 +537,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 410374833}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.1400001, y: 1, z: 2.8900001}
@@ -600,7 +600,7 @@ Renderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 921842252}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -1019,7 +1019,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1788133972}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: .5
   m_Height: 2
@@ -1148,7 +1148,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1817372548}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: .5
   m_Height: 2

@@ -10,8 +10,10 @@ public class BossEnemyScript : EnemyScript
                                         7,
                                         0,
                                         -7  };
-    private Dictionary<float, Object> laneColors;
+    private Dictionary<float, string> laneColors;
+    private GameObject[] clones;
     private float zLanePosition;
+    private Object cloneResource;
 
     void Awake()
     {
@@ -24,36 +26,43 @@ public class BossEnemyScript : EnemyScript
         maxHealth = 1000f;
 
         //Sort LaneColors
-        laneColors = new Dictionary<float, Object>();
-        laneColors.Add(possibleLanes[0], Resources.Load("Boss/TopMost/Boss-robot1"));
-        laneColors.Add(possibleLanes[1], Resources.Load("Boss/Top/Boss-robot1"));
-        laneColors.Add(possibleLanes[2], Resources.Load("Boss/Middle/Boss-robot1"));
-        laneColors.Add(possibleLanes[3], Resources.Load("Boss/Bottom/Boss-robot1"));
-        laneColors.Add(possibleLanes[4], Resources.Load("Boss/BottomMost/Boss-robot1"));
+        laneColors = new Dictionary<float, string>();
+        laneColors.Add(possibleLanes[0],"Boss/TopMost/Boss-robot");
+        laneColors.Add(possibleLanes[1], "Boss/Top/Boss-robot");
+        laneColors.Add(possibleLanes[2],"Boss/Middle/Boss-robot");
+        laneColors.Add(possibleLanes[3], "Boss/Bottom/Boss-robot");
+        laneColors.Add(possibleLanes[4], "Boss/BottomMost/Boss-robot");
+        
         this.zLanePosition = DetermineLane();
         ColorBossForLane(zLanePosition);
 
         //Load in Duplicates
+        CreateDecoys();
+        
 
     }
 
     void ColorBossForLane(float z)
     {
-        this.gameObject.renderer.material.SetTexture("_MainTex", (Texture2D)laneColors[z]);
+        EnemyAnimation myAnimator = gameObject.GetComponent<EnemyAnimation>();
+        myAnimator.EnableWalking(laneColors[z]);
     }
 
     //BossEnemy inherits Enemy to keep it stream lined.
     //Appears in all lanes functionality
-    //Damage to phantom gives damage boost to boss    void CreateDecoys()
-    {
-        foreach (float z in possibleLanes)
-        {
-            if (this.transform.position.z != z)
-            {
-                
-            }
-        }
+    //Damage to phantom gives damage boost to boss
 
-    }
+    void CreateDecoys()
+    {
+        Object prefab = Resources.Load("BossEnemy");
+        float currentZ = 14;
+        Debug.Log(transform.position.z);
+        GameObject tits = Instantiate(prefab, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, currentZ), Quaternion.identity) as GameObject;
+        Debug.Log(tits);
+        if (currentZ != this.gameObject.transform.position.z)
+        {
+        }
+    }
+
 }
     
