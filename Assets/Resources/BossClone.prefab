@@ -17,7 +17,7 @@ GameObject:
   - 82: {fileID: 8200000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: BossEnemy
+  m_Name: BossClone
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7f1aeff75844c24f9d13033249224d8, type: 3}
   m_Name: 
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 737571cdc13d81a4cb1b3444a0acf1ad, type: 3}
+  m_Script: {fileID: 11500000, guid: 05ef20cbaabeb9543bae859f343f37ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 15
@@ -190,7 +190,6 @@ MonoBehaviour:
   maxHealth: 100
   currentSpeed: 5
   normalSpeed: 5
-  cloneResource: {fileID: 2800000, guid: df6402c19a0fd0a4381de354540f37d7, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

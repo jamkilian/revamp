@@ -4,19 +4,20 @@ using System.Collections.Generic;
 
 public class BossEnemyScript : EnemyScript
 {
-    private List<float> laneList;
-    private float[] possibleLanes = {   21,
+    protected List<float> laneList;
+    protected float[] possibleLanes = {   21,
                                         14,
                                         7,
                                         0,
                                         -7  };
-    private Dictionary<float, string> laneColors;
-    private GameObject[] clones;
-    private float zLanePosition;
+    protected Dictionary<float, string> laneColors;
+    protected GameObject[] clones;
+    protected float zLanePosition;
     private Object cloneResource;
 
-    void Awake()
+    protected void Awake()
     {
+        cloneResource = Resources.Load("BossClone");
         //Set Speed
         currentSpeed = 2f;
         normalSpeed = 2f;
@@ -35,14 +36,17 @@ public class BossEnemyScript : EnemyScript
         
         this.zLanePosition = DetermineLane();
         ColorBossForLane(zLanePosition);
+        clones = new GameObject[possibleLanes.Length - 1];
 
         //Load in Duplicates
-        CreateDecoys();
-        
+        if (this.gameObject.name == "BossEnemy")
+        {
+            CreateDecoys();
+        }
 
     }
 
-    void ColorBossForLane(float z)
+    protected void ColorBossForLane(float z)
     {
         EnemyAnimation myAnimator = gameObject.GetComponent<EnemyAnimation>();
         myAnimator.EnableWalking(laneColors[z]);
@@ -52,16 +56,43 @@ public class BossEnemyScript : EnemyScript
     //Appears in all lanes functionality
     //Damage to phantom gives damage boost to boss
 
-    void CreateDecoys()
+    private void CreateDecoys()
     {
-        Object prefab = Resources.Load("BossEnemy");
-        float currentZ = 14;
-        Debug.Log(transform.position.z);
-        GameObject tits = Instantiate(prefab, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, currentZ), Quaternion.identity) as GameObject;
-        Debug.Log(tits);
-        if (currentZ != this.gameObject.transform.position.z)
+        //cloneIndex, only to have the array in an a sane fashion. Didn't want to make a big dict for no reason
+        int cloneIndex = 0;
+        foreach (float currentZ in possibleLanes) 
         {
+            if (currentZ != zLanePosition)
+            {
+                clones[cloneIndex] = Instantiate(cloneResource, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, currentZ), Quaternion.identity) as GameObject;
+                clones[cloneIndex].SendMessage("Instantiate", zLanePosition);
+                cloneIndex++;
+            }
         }
+    }
+    
+    public void GainPower(float powerGained)
+    {
+        this.attackDamage += powerGained;
+    }
+
+    protected virtual void AdditionalDestroy()
+    {
+        foreach (GameObject clone in clones)
+        {
+            Debug.Log(clone);
+            clone.SendMessage("Destroy");
+        }
+    }
+
+    private void Destroy()
+    {
+        this.agentScript.AgentDestroy();
+        spawnedFlame = (GameObject)Instantiate(flameObject, this.gameObject.transform.position, this.gameObject.transform.rotation);
+        AdditionalDestroy();
+        Debug.Log("derp");
+        Destroy(this.gameObject);
+        Destroy(spawnedFlame, 3f);
     }
 
 }
