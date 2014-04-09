@@ -8,7 +8,7 @@ public class EnemyScript : BaseDestroyable
     public float normalSpeed = 5f;
     private bool keepWalking = true;
     private Vector3 targetPosition;
-    private ServerHealth sh;
+    private Health sh;
     private Agent agentScript;
     
     // Use this for initialization
@@ -16,7 +16,7 @@ public class EnemyScript : BaseDestroyable
     {
         this.BaseStart();
         target = GameObject.Find("Server");
-        sh = (ServerHealth)target.GetComponent("ServerHealth");
+        sh = (Health)target.GetComponent("Health");
         float zLanePosition = DetermineLane();
         targetPosition = new Vector3(target.collider.transform.position.x, target.collider.transform.position.y, zLanePosition);
 
@@ -52,6 +52,16 @@ public class EnemyScript : BaseDestroyable
             walk.iswalk = true;
             agentScript.AgentAttack(other.gameObject, attackDamage);
         }
+    }
+
+    
+	
+    void ContinueWalking()
+    {
+        keepWalking = true;
+        EnemyAnimation walk;
+        walk = this.GetComponent<EnemyAnimation>();
+	walk.iswalk = false;
     }
 
     protected void NormalSpeed()

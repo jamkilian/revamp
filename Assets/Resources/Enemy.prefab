@@ -16,6 +16,7 @@ GameObject:
   - 114: {fileID: 11400004}
   - 82: {fileID: 8200000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400006}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -172,8 +173,8 @@ MonoBehaviour:
   attackDamage: 15
   currentHealth: 100
   maxHealth: 100
-  currentSpeed: 5
-  normalSpeed: 5
+  currentSpeed: 3.5
+  normalSpeed: 3.5
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,6 +191,23 @@ MonoBehaviour:
   robotWalk3: {fileID: 2800000, guid: 76fc2ea8b479f214088d4c2dc44478b0, type: 3}
   iswalk: 0
   robotstill: {fileID: 2800000, guid: f52385492d28ce2478038a69e406e228, type: 3}
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e76cbb7458da524a8b87783c715c3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  curHealth: 100
+  healthBarLength: 0
+  target: {fileID: 400000}
+  offsetX: 5
+  offsetY: 5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
