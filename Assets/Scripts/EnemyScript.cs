@@ -73,7 +73,7 @@ public class EnemyScript : BaseDestroyable
 		normalSpeed = S;
 	}
 
-	protected void Destroy()
+	protected virtual void Destroy()
 	{
 		this.agentScript.AgentDestroy();
 		spawnedFlame = (GameObject)Instantiate(flameObject, this.gameObject.transform.position, this.gameObject.transform.rotation);

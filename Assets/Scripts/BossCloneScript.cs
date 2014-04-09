@@ -38,4 +38,11 @@ public class BossCloneScript : BossEnemyScript
     {
         parentScript.GainPower(powerToGive);
     }
+
+    protected override void Destroy()
+    {
+        spawnedFlame = (GameObject)Instantiate(flameObject, this.gameObject.transform.position, this.gameObject.transform.rotation);
+        Destroy(this.gameObject);
+        Destroy(spawnedFlame, 3f);
+    }
 }

@@ -85,7 +85,14 @@ public class BossEnemyScript : EnemyScript
         }
     }
 
-    private void Destroy()
+    public void TakeDamage(float damage)
+    {
+        //Debug.Log(this.name + " is Taking damage! " + damage);
+        if ((currentHealth -= damage) <= 0)
+            Destroy();
+    }
+
+    protected override void Destroy()
     {
         this.agentScript.AgentDestroy();
         spawnedFlame = (GameObject)Instantiate(flameObject, this.gameObject.transform.position, this.gameObject.transform.rotation);
