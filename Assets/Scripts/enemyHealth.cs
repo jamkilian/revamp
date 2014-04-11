@@ -16,7 +16,7 @@ public class enemyHealth : Health
     }
     public override void TakeDamage(float damage)
     {
-        Debug.Log("Taking Damage");
+        Debug.Log("should be Taking Damage, but not");
     }
 
     

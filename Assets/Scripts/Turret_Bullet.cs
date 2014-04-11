@@ -40,7 +40,7 @@ public class Turret_Bullet : MonoBehaviour
 	
 	private void OnTriggerStay(Collider hit)
 	{
-		Debug.Log("I Hit " + hit);
+		//Debug.Log("I Hit " + hit);
 
 		if(hit.tag == "Enemy")
 		{
