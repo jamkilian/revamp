@@ -35,7 +35,7 @@ public class Turret : BaseDestroyable
 	// Update is called once per frame
 	private void Update()
 	{
-		Debug.DrawRay(this.gameObject.transform.position, this.gameObject.transform.forward * turretDistance, Color.cyan, 5f);
+		Debug.DrawRay(this.gameObject.transform.position, this.gameObject.transform.up * turretDistance, Color.cyan, 5f);
 		if (turretRefreshTimes <= Time.time)
 		{
 			AttackTarget(SearchForTarget());
