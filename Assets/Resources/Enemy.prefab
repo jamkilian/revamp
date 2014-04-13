@@ -190,7 +190,7 @@ MonoBehaviour:
   robotWalk2: {fileID: 2800000, guid: f52385492d28ce2478038a69e406e228, type: 3}
   robotWalk3: {fileID: 2800000, guid: 76fc2ea8b479f214088d4c2dc44478b0, type: 3}
   iswalk: 0
-  robotstill: {fileID: 2800000, guid: f52385492d28ce2478038a69e406e228, type: 3}
+  robotStill: {fileID: 0}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -199,15 +199,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e76cbb7458da524a8b87783c715c3cd, type: 3}
+  m_Script: {fileID: 11500000, guid: c2ab275b994b2074d8e4292d4869161e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
   curHealth: 100
   healthBarLength: 0
-  target: {fileID: 400000}
-  offsetX: 5
-  offsetY: 5
+  target: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

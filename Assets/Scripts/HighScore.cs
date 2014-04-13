@@ -11,8 +11,8 @@ public class HighScore : MonoBehaviour {
 	
 	void IncreaseScore()
 	{
-		score += 10;
-		Debug.Log(score);	
+		Kills.kills++;
+		Debug.Log(Kills.kills);	
 	}
 	
 	void OnGUI()
@@ -25,8 +25,8 @@ public class HighScore : MonoBehaviour {
 		}
 		if(PlayerPrefs.HasKey("Kills"))
 		{
-            GUI.Label(new Rect(20, 130, 160, 40), PlayerPrefs.GetString("PlayerName") + " : " + PlayerPrefs.GetInt("Kills") + " : " + PlayerPrefs.GetInt("Waves"));
+			GUI.Label(new Rect(20, 130, 160, 40), PlayerPrefs.GetString("PlayerName") + " : " + PlayerPrefs.GetInt("Kills") + " : " + PlayerPrefs.GetInt("Waves"));
 		}
-        
+		
 	}
 }

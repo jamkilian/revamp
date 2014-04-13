@@ -8,6 +8,7 @@ public class WeaponBomb : MonoBehaviour
 	private float counter2 = 0;
 	private float rad = 5;
 	private bool explode = false;
+	private float attackDamage = 100f;
 
 	public AudioClip bombSound;
 
@@ -61,12 +62,9 @@ public class WeaponBomb : MonoBehaviour
 		hitTargets = Physics.OverlapSphere(this.gameObject.transform.position, rad);
 		foreach (Collider hit in hitTargets)
 		{
-			//Debug.Log(hit.tag);
 			if (hit.tag == "Enemy")
-
 			{
-				Kills.kills++;
-				hit.SendMessage("Destroy");
+				hit.SendMessage("TakeDamage",attackDamage);
 			}
 		}
 		explode = true;

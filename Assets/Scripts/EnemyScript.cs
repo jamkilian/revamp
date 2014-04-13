@@ -50,7 +50,7 @@ public class EnemyScript : BaseDestroyable
 			EnemyAnimation walk;
 			walk = this.GetComponent<EnemyAnimation>();
 			walk.iswalk = true;
-			agentScript.AgentAttack(other.gameObject, attackDamage);
+			this.agentScript.AgentAttack(other.gameObject, attackDamage);
 		}
 	}
 
@@ -77,7 +77,6 @@ public class EnemyScript : BaseDestroyable
 	{
 		this.agentScript.AgentDestroy();
 		spawnedFlame = (GameObject)Instantiate(flameObject, this.gameObject.transform.position, this.gameObject.transform.rotation);
-		Debug.Log("derp");
 		Destroy(this.gameObject);
 		Destroy(spawnedFlame, 3f);
 	}

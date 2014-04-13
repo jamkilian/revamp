@@ -28,12 +28,12 @@ public class BossEnemyScript : EnemyScript
 
         //Sort LaneColors
         laneColors = new Dictionary<float, string>();
-        laneColors.Add(possibleLanes[0],"Boss/TopMost/Boss-robot");
+        laneColors.Add(possibleLanes[0], "Boss/TopMost/Boss-robot");
         laneColors.Add(possibleLanes[1], "Boss/Top/Boss-robot");
-        laneColors.Add(possibleLanes[2],"Boss/Middle/Boss-robot");
+        laneColors.Add(possibleLanes[2], "Boss/Middle/Boss-robot");
         laneColors.Add(possibleLanes[3], "Boss/Bottom/Boss-robot");
         laneColors.Add(possibleLanes[4], "Boss/BottomMost/Boss-robot");
-        
+
         this.zLanePosition = DetermineLane();
         ColorBossForLane(zLanePosition);
         clones = new GameObject[possibleLanes.Length - 1];
@@ -43,7 +43,6 @@ public class BossEnemyScript : EnemyScript
         {
             CreateDecoys();
         }
-
     }
 
     protected void ColorBossForLane(float z)
@@ -60,7 +59,7 @@ public class BossEnemyScript : EnemyScript
     {
         //cloneIndex, only to have the array in an a sane fashion. Didn't want to make a big dict for no reason
         int cloneIndex = 0;
-        foreach (float currentZ in possibleLanes) 
+        foreach (float currentZ in possibleLanes)
         {
             if (currentZ != zLanePosition)
             {
@@ -70,7 +69,7 @@ public class BossEnemyScript : EnemyScript
             }
         }
     }
-    
+
     public void GainPower(float powerGained)
     {
         this.attackDamage += powerGained;
@@ -85,22 +84,14 @@ public class BossEnemyScript : EnemyScript
         }
     }
 
-    public void TakeDamage(float damage)
-    {
-        //Debug.Log(this.name + " is Taking damage! " + damage);
-        if ((currentHealth -= damage) <= 0)
-            Destroy();
-    }
-
+    //We need destroy defined again due to the clone destroy logic
     protected override void Destroy()
     {
         this.agentScript.AgentDestroy();
         spawnedFlame = (GameObject)Instantiate(flameObject, this.gameObject.transform.position, this.gameObject.transform.rotation);
         AdditionalDestroy();
-        Debug.Log("derp");
         Destroy(this.gameObject);
         Destroy(spawnedFlame, 3f);
     }
 
 }
-    

@@ -203,7 +203,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 813511109}
   m_GameObject: {fileID: 82610313}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.4606328, y: 1.71839976, z: 2.57999992}
@@ -366,7 +366,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 584757213}
   m_GameObject: {fileID: 176317430}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.4606328, y: 1.71839976, z: 2.57999992}
@@ -557,7 +557,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 478750799}
   m_GameObject: {fileID: 424804865}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.4606328, y: 1.71839976, z: 2.57999992}
@@ -728,6 +728,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 6500000, guid: 0cbcd90fba0418c4c9ba2641d04f03bf, type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0cbcd90fba0418c4c9ba2641d04f03bf, type: 2}
   m_RootGameObject: {fileID: 424804865}
@@ -837,6 +841,10 @@ Prefab:
     - target: {fileID: 400002, guid: 0cbcd90fba0418c4c9ba2641d04f03bf, type: 2}
       propertyPath: m_LocalRotation.w
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500000, guid: 0cbcd90fba0418c4c9ba2641d04f03bf, type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0cbcd90fba0418c4c9ba2641d04f03bf, type: 2}
@@ -1269,6 +1277,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 6500000, guid: 0cbcd90fba0418c4c9ba2641d04f03bf, type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0cbcd90fba0418c4c9ba2641d04f03bf, type: 2}
   m_RootGameObject: {fileID: 82610313}
@@ -1522,7 +1534,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 1939387972}
   m_GameObject: {fileID: 981052509}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.4606328, y: 1.71839976, z: 2.57999992}
@@ -1824,6 +1836,10 @@ Prefab:
     - target: {fileID: 400002, guid: 0cbcd90fba0418c4c9ba2641d04f03bf, type: 2}
       propertyPath: m_LocalRotation.w
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500000, guid: 0cbcd90fba0418c4c9ba2641d04f03bf, type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0cbcd90fba0418c4c9ba2641d04f03bf, type: 2}
@@ -2305,7 +2321,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 1159975170}
   m_GameObject: {fileID: 1649822477}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.4606328, y: 1.71839976, z: 2.57999992}
@@ -2698,6 +2714,10 @@ Prefab:
     - target: {fileID: 400002, guid: 0cbcd90fba0418c4c9ba2641d04f03bf, type: 2}
       propertyPath: m_LocalRotation.w
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6500000, guid: 0cbcd90fba0418c4c9ba2641d04f03bf, type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0cbcd90fba0418c4c9ba2641d04f03bf, type: 2}

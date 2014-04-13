@@ -20,7 +20,7 @@ public class BaseDestroyable : MonoBehaviour
     {
         //Debug.Log(this.name + " is Taking damage! " + damage);
         if ((currentHealth -= damage) <= 0)
-            Destroy();
+            this.gameObject.SendMessage("Destroy");
     }
 
     protected virtual void Destroy()
@@ -28,6 +28,5 @@ public class BaseDestroyable : MonoBehaviour
         spawnedFlame = (GameObject)Instantiate(flameObject, this.gameObject.transform.position, this.gameObject.transform.rotation);
         Destroy(this.gameObject);
         Destroy(spawnedFlame, 3f);
-        Debug.Log("Bad Bad!");
     }
 }

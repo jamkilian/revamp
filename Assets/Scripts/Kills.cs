@@ -14,7 +14,6 @@ public class Kills : MonoBehaviour
 		PlayerPrefs.SetInt("Kills", kills);
 		PlayerPrefs.SetString("PlayerName", "Dracula");
 		PlayerPrefs.Save();
-
 	}
 	
 	// Update is called once per frame

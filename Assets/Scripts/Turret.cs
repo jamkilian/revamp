@@ -18,7 +18,7 @@ public class Turret : BaseDestroyable
 	{
 		this.BaseStart();
 		bulletPrefab = Resources.Load("TurretBullet");
-		hitRange = new Ray(this.gameObject.transform.position, this.gameObject.transform.forward * turretDistance);
+        hitRange = new Ray(this.gameObject.transform.position, new Vector3(-1, 0, 0) * turretDistance);
 	}
 	
 	//Initiailize the bullet with location, and target
@@ -35,7 +35,7 @@ public class Turret : BaseDestroyable
 	// Update is called once per frame
 	private void Update()
 	{
-		Debug.DrawRay(this.gameObject.transform.position, this.gameObject.transform.up * turretDistance, Color.cyan, 5f);
+		Debug.DrawRay(this.gameObject.transform.position, new Vector3(-1,0,0) * turretDistance, Color.cyan, 5f);
 		if (turretRefreshTimes <= Time.time)
 		{
 			AttackTarget(SearchForTarget());
