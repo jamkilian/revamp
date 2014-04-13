@@ -190,7 +190,7 @@ MonoBehaviour:
   robotWalk2: {fileID: 2800000, guid: f52385492d28ce2478038a69e406e228, type: 3}
   robotWalk3: {fileID: 2800000, guid: 76fc2ea8b479f214088d4c2dc44478b0, type: 3}
   iswalk: 0
-  robotStill: {fileID: 0}
+  robotStill: {fileID: 2800000, guid: f52385492d28ce2478038a69e406e228, type: 3}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
