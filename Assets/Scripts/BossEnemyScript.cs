@@ -39,7 +39,7 @@ public class BossEnemyScript : EnemyScript
         clones = new GameObject[possibleLanes.Length - 1];
 
         //Load in Duplicates
-        if (this.gameObject.name == "BossEnemy")
+        if (this.gameObject.name == "BossEnemy(Clone)")
         {
             CreateDecoys();
         }

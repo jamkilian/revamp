@@ -6,6 +6,7 @@ public class newWave : MonoBehaviour
     public GameObject[] SpawnPoints;
 
     public GameObject EnemyPrefab;
+    private Object BossPrefab;
     public int enemiesAmount;
     public float spawnWait;
     public float startWait;
@@ -14,8 +15,8 @@ public class newWave : MonoBehaviour
     public static int waves;
 
     void Start ()
-        
     {
+        BossPrefab = Resources.Load("BossEnemy");
         StartCoroutine (SpawnWaves ());
         SpawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
         waves = 1;
@@ -34,8 +35,9 @@ public class newWave : MonoBehaviour
                 EnemyScript es = EnemyPrefab.GetComponent<EnemyScript>();
                 es.SetSpeed(baseEnemySpeed);
                 yield return new WaitForSeconds (spawnWait);
-                
             }
+            GameObject bossPos = SpawnPoints[Random.Range(0, SpawnPoints.Length)];
+            Instantiate(BossPrefab, bossPos.transform.position, bossPos.transform.rotation);
             yield return new WaitForSeconds (waveWait);
             newWave.waves++;
         }

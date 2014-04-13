@@ -11,7 +11,7 @@ public class BossCloneScript : BossEnemyScript
     private void Instantiate(float parentLaneZ)
     {
         this.parentLaneZ = parentLaneZ;
-        GameObject parent = GameObject.Find("BossEnemy");
+        GameObject parent = GameObject.Find("BossEnemy(Clone)");
         parentScript = parent.GetComponent<BossEnemyScript>();
         ColorBossForLane(parentLaneZ);
     }
