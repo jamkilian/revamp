@@ -21,7 +21,7 @@ public class EnemyScript : BaseDestroyable
 		targetPosition = new Vector3(target.collider.transform.position.x, target.collider.transform.position.y, zLanePosition);
 
 		//Load in Agent script on this object, to track states
-		agentScript = gameObject.GetComponent<Agent>();
+		agentScript = this.gameObject.GetComponent<Agent>();
 	}
 
 	protected float DetermineLane()

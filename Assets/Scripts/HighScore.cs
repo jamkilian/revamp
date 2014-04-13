@@ -4,17 +4,6 @@ using System.Collections;
 public class HighScore : MonoBehaviour {
 	private int score = 0;
 	
-	void Awake()
-	{
-		DeadState.OnDeath += IncreaseScore;
-	}
-	
-	void IncreaseScore()
-	{
-		Kills.kills++;
-		Debug.Log(Kills.kills);	
-	}
-	
 	void OnGUI()
 	{
 
